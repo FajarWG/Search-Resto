@@ -1,24 +1,25 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
 import '../styles/responsive.css';
+import App from './views/app';
+import swRegister from './utils/sw-register';
 
-import { getRestaurants } from './data/listResto';
+import './components/nav-bar';
+import './components/article-resto';
+import './components/foo-ter';
+import './components/molecule/review-form';
 
-const button = document.querySelector('.menu-button');
-const nav = document.querySelector('#nav');
-
-document.addEventListener('DOMContentLoaded', () => {
-  getRestaurants();
+const app = new App({
+  button: document.querySelector('.menu-button'),
+  drawer: document.querySelector('#nav'),
+  content: document.querySelector('#maincontent'),
 });
 
-button.addEventListener('click', () => {
-  nav.classList.toggle('open');
+window.addEventListener('hashchange', () => {
+  app.renderPage();
 });
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY >= 300) {
-    document.querySelector('#nav').classList.add('scroll');
-  } else {
-    document.querySelector('#nav').classList.remove('scroll');
-  }
+window.addEventListener('load', () => {
+  app.renderPage();
+  swRegister();
 });

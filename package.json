@@ -38,6 +38,8 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
-    "regenerator-runtime": "^0.13.9"
+    "idb": "^7.1.1",
+    "regenerator-runtime": "^0.13.9",
+    "serviceworker-webpack-plugin": "^1.0.1"
   }
 }
