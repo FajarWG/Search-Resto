@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle */
+
 
 const favoriteButton = () => `
   <button aria-label="favorite this restaurant" id="favoriteButton" class="favorite">

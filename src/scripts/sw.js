@@ -1,38 +1,34 @@
-/* eslint-disable consistent-return */
-/* eslint-disable array-callback-return */
-/* eslint-disable no-restricted-globals */
 import 'regenerator-runtime';
-import CONFIG from './global/config';
+import CacheHelper from './utils/cache-helper';
 
 const assetsToCache = [
   '/',
   '/index.html',
   '/app.bundle.js',
+  '/app.bundle.js.map',
   '/sw.bundle.js',
+  '/sw.bundle.js.map',
+  '/app.webmanifest',
+  '/favicon.png',
+  '/images/hero.jpg',
+  '/icons/icon-72x72.png',
+  '/icons/icon-96x96.png',
+  '/icons/icon-128x128.png',
+  '/icons/icon-144x144.png',
+  '/icons/icon-152x152.png',
+  '/icons/icon-192x192.png',
+  '/icons/icon-384x384.png',
+  '/icons/icon-512x512.png',
 ];
 
 self.addEventListener('install', (event) => {
-  self.skipWaiting();
-  console.log('Installing service worker....');
-
-  event.waitUntil(
-    caches.open(CONFIG.CACHE_NAME)
-      .then((cache) => cache.addAll(assetsToCache)),
-  );
+  event.waitUntil(CacheHelper.cachingAppShell([...assetsToCache, './']));
 });
 
 self.addEventListener('activate', (event) => {
-  console.log('Activating service worker...');
+  event.waitUntil(CacheHelper.deleteOldCache());
+});
 
-  event.waitUntil(
-    caches.keys()
-      .then((cacheNames) => Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CONFIG.CACHE_NAME) {
-            console.log(`ServiceWorker: cache ${cacheName} dihapus`);
-            return caches.delete(cacheName);
-          }
-        }),
-      )),
-  );
+self.addEventListener('fetch', (event) => {
+  event.respondWith(CacheHelper.revalidateCache(event.request));
 });

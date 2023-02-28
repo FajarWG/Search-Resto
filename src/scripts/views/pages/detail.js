@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle */
+
 import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/fetch-data';
 import { articleRestoDetail } from '../../components/article-resto';

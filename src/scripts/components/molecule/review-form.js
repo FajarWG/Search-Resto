@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-underscore-dangle */
 class reviewForm extends HTMLElement {
   connectedCallback() {
     this.render();

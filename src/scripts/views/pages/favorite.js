@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle */
+
 import FavoriteRestaurantDB from '../../data/database';
 import { articleResto } from '../../components/article-resto';
 
