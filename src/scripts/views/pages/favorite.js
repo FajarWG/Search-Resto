@@ -1,34 +1,34 @@
 /* eslint-disable no-underscore-dangle */
 import FavoriteRestaurantDB from '../../data/database';
-import FavoriteButtonInitiator from '../../utils/favorite-btn-initiator';
+import { articleResto } from '../../components/article-resto';
 
-const BoorkMark = {
+const Favorite = {
   async render() {
     return `
-    <div id="restaurantBookmark" class='container__secondary card-1 mt8'>
-        <h2 class="mt1 center">Bookmark Anda</h2>
-         <section id="restaurant-bookmark">
-         </section>
+    <div id="content" tabindex="0">
+        <section class="title-content">
+        <h2><span>Favorite Restaurant</span></h2>
+        </section>
+        <div class="explore" id="exploreContent">
+        </div>
     </div>
       `;
   },
 
   async afterRender() {
-    try {
-      this._restaurantBookmark = document.getElementById('restaurantBookmark');
-      this._dataRestaurant = await FavoriteRestaurantDB.getRestaurant();
-      this._initialContentBookmarkPage(this._dataRestaurant, this._restaurantBookmark);
-    } catch (error) {
-      console.log(error);
+    const favoriteRestaurants = await FavoriteRestaurantDB.getAllRestaurants();
+    const favoriteRestaurantsContainer = document.querySelector('#exploreContent');
+    if (favoriteRestaurants.length === 0) {
+      favoriteRestaurantsContainer.innerHTML = `
+        <div class="no-favorite">
+          <p>There is no favorite restaurant</p>
+        </div>
+      `;
+    } else {
+      articleResto(favoriteRestaurants);
     }
   },
 
-  async _initialContentBookmarkPage(dataRestaurant, bookmarkContent) {
-    FavoriteButtonInitiator.init({
-      data: dataRestaurant,
-      content: bookmarkContent,
-    });
-  },
 };
 
-export default BoorkMark;
+export default Favorite;

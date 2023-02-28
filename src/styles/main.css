@@ -315,6 +315,13 @@ nav h1 a:active {
   display: inline-block;
 }
 
+.no-favorite {
+  text-align: center;
+  font-size: 18px;
+  color: #3b70c8;
+  margin: 16px auto;
+}
+
 footer {
   text-align: center;
   color: #fbfbfb;
