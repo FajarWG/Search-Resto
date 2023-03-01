@@ -1,8 +1,7 @@
-
 import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/fetch-data';
 import { articleRestoDetail } from '../../components/article-resto';
-import RestaurantReviewInitiator from '../../utils/restaurant-review-initiator';
+// import ReviewFormInitiator from '../../utils/review-form-initiator';
 import FavoriteButtonInitiator from '../../utils/favorite-btn-initiator';
 import FavoriteRestaurantDB from '../../data/database';
 
@@ -25,8 +24,7 @@ const Detail = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const resto = await RestaurantSource.detailResto(url.id);
     articleRestoDetail(resto);
-    this._initialDetailPage(resto);
-
+    // ReviewFormInitiator.init(resto, document.querySelector('review-form'));
     FavoriteButtonInitiator.init({
       favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
       favoriteRestaurants: FavoriteRestaurantDB,
@@ -39,10 +37,6 @@ const Detail = {
         rating: resto.rating,
       },
     });
-  },
-
-  async _initialDetailPage(restaurantDetail) {
-    RestaurantReviewInitiator.init(restaurantDetail, document.querySelector('review-form'));
   },
 
 };

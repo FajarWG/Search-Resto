@@ -272,6 +272,7 @@ nav h1 a:active {
   border: 1px solid #3b70c8;
   border-radius: 4px;
   margin-bottom: 8px;
+  min-height: 44px;
 }
 
 .review-form textarea {
@@ -280,6 +281,7 @@ nav h1 a:active {
   border: 1px solid #3b70c8;
   border-radius: 4px;
   margin-bottom: 8px;
+  min-height: 44px;
 }
 
 .review-form button {
@@ -293,6 +295,7 @@ nav h1 a:active {
   font-size: 0.8rem;
   font-weight: 600;
   text-decoration: none;
+  min-height: 44px;
 }
 
 .favorite {

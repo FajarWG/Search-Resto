@@ -3,14 +3,14 @@ class reviewForm extends HTMLElement {
     this.render();
   }
 
-  set asyncReviews(reviews) {
-    this._restaurantReviews = reviews;
+  set detailResto(detailResto) {
+    this._detailResto = detailResto;
     this._render();
   }
 
   set sendReview(eventSend) {
+    console.log(eventSend);
     this._sendReview = eventSend;
-    // this._render();
     this.querySelector('#reviewForm').reset;
   }
 
@@ -33,10 +33,7 @@ class reviewForm extends HTMLElement {
           <button type="submit" class="btn">Kirim</button>
       </form>
       </div>`;
-    this.querySelector('#reviewForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-      this._sendReview;
-    });
+    this.querySelector('#reviewForm').addEventListener('submit', this.sendReview);
   }
 }
 customElements.define('review-form', reviewForm);
