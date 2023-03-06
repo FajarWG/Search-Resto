@@ -9,11 +9,11 @@ const articleResto = (data) => {
   data.forEach((restaurant) => {
     description = `${restaurant.description.slice(0, 90)}...`;
     elmHtml += `
-              <article class="item" aria>
+              <article class="item" id="resto-item" aria>
                   <div class="image"> 
-                      <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Restoran ${restaurant.name} , ${restaurant.city}">
+                      <img class="lazyload" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Restoran ${restaurant.name} , ${restaurant.city}">
                   </div>
-                  <div class="item-detail">
+                  <div class="item-detail" id="items">
                       <a href="/#/detail/${restaurant.id}" class="title">${restaurant.name}</a>
                       <h4 class="subtitle">${restaurant.city}</h4>
                       <div class="description">
