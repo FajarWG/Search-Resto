@@ -5,7 +5,7 @@ const favoriteButton = () => `
 `;
 
 const unfavoriteButton = () => `
-  <button aria-label="unfavorite this restaurant" id="favoriteButton" class="favorite">
+  <button aria-label="unfavorite this restaurant" id="unfavoriteButton" class="favorite">
     <i class="fas fa-heart" aria-hidden="true"></i>
   </button>
 `;
@@ -46,7 +46,7 @@ const FavoriteButtonInitiator = {
   _renderLiked() {
     this._favoriteButtonContainer.innerHTML = unfavoriteButton();
 
-    const displayBtn = document.querySelector('#favoriteButton');
+    const displayBtn = document.querySelector('#unfavoriteButton');
     displayBtn.addEventListener('click', async () => {
       await this._favoriteRestaurants.deleteRestaurant(this._restaurant.id);
       this._renderButton();

@@ -9,6 +9,9 @@ import './components/article-resto';
 import './components/foo-ter';
 import './components/molecule/review-form';
 
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
 const app = new App({
   button: document.querySelector('.menu-button'),
   drawer: document.querySelector('#nav'),

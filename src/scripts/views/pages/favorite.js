@@ -19,7 +19,7 @@ const Favorite = {
     const favoriteRestaurantsContainer = document.querySelector('#exploreContent');
     if (favoriteRestaurants.length === 0) {
       favoriteRestaurantsContainer.innerHTML = `
-        <div class="no-favorite">
+        <div class="no-favorite" id="resto-item__not__found">
           <p>There is no favorite restaurant</p>
         </div>
       `;

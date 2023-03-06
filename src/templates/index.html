@@ -23,7 +23,12 @@
     <main>
       <div class="hero">
         <picture>
-          <img src="./images/hero.jpg" alt="Gambar Estetik Makanan" />
+          <source media="(max-width: 600px)" srcset="./images/hero-small.jpg" />
+          <img
+            class="lazyload"
+            src="./images/hero.jpg"
+            alt="Gambar Estetik Makanan"
+          />
         </picture>
         <div class="inner">
           <h1 class="title">Search Resto</h1>
