@@ -12,7 +12,7 @@
     "build-image": "node sharp.js"
   },
   "keywords": [],
-  "author": "Fajar Wahyu Gumelar <fajarwahyugumelar@gmail.com>",
+  "author": "Fajar Wahyu Gumelar <fajarwahyugumelar@gmail.com >",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.5",
