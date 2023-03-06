@@ -11,7 +11,7 @@ const articleResto = (data) => {
     elmHtml += `
               <article class="item" id="resto-item" aria>
                   <div class="image"> 
-                      <img class="lazyload" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Restoran ${restaurant.name} , ${restaurant.city}">
+                      <img class="lazyload" data-src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="Restoran ${restaurant.name} , ${restaurant.city}">
                   </div>
                   <div class="item-detail" id="items">
                       <a href="/#/detail/${restaurant.id}" class="title">${restaurant.name}</a>
