@@ -5,7 +5,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -79,6 +78,5 @@ module.exports = {
         }),
       ],
     }),
-    new BundleAnalyzerPlugin(),
   ],
 };
